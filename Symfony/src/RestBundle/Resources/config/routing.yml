@@ -1,3 +1,7 @@
 rest_homepage:
     path:     /hello/{name}
     defaults: { _controller: RestBundle:Default:index }
+
+rest_user:
+    path:     /user/{id}
+    defaults: { _controller: RestBundle:User:index }
