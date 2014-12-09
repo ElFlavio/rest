@@ -5,3 +5,7 @@ rest_homepage:
 rest_user:
     path:     /user/{id}
     defaults: { _controller: RestBundle:User:index }
+
+rest_user2:
+    path:     /user/{id}/
+    defaults: { _controller: RestBundle:User:index }
