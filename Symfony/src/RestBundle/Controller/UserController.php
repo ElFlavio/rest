@@ -44,4 +44,14 @@ class UserController extends Controller
 	        return $response;
 		}
     }
+    public function addAction()
+    {
+    	if ($request->getMethod() == 'POST')
+    	{
+			$response = new Response();
+	        $response->setContent(json_encode(array('test'=>test)));
+	        $response->headers->set('Content-Type', 'application/json');
+	        return $response;
+  		}
+    }
 }
