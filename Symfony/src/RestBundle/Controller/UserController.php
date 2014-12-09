@@ -38,7 +38,8 @@ class UserController extends Controller
 	        $response = new Response();
 	        $response->setContent(json_encode(array('status'=>401,
 	        'message'=>'unauthorized'
-	         )));
+	        )));
+			$response->setStatusCode(401);
 	        $response->headers->set('Content-Type', 'application/json');
 	        return $response;
 		}
