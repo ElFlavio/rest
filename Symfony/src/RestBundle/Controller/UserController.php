@@ -15,10 +15,9 @@ class UserController extends Controller
         {
 			$response = new Response();
 			$response->setContent(json_encode(array('status'=>404,
-			'message'=>'not found',
-			)), 
-			404
-			);
+			'message'=>'not found'
+			)));
+			$response->setStatusCode(404);
 			$response->headers->set('Content-Type', 'application/json');
 			return $response;
         }    
