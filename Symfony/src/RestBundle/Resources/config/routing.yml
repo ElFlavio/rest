@@ -9,3 +9,11 @@ rest_user:
 rest_user2:
     path:     /user/{id}/
     defaults: { _controller: RestBundle:User:index }
+
+rest_user3:
+    path:     /users/{id}/
+    defaults: { _controller: RestBundle:User:index }
+
+rest_user4:
+    path:     /users/{id}/
+    defaults: { _controller: RestBundle:User:index }

@@ -10,20 +10,36 @@ class UserController extends Controller
 {
     public function indexAction($id)
     {  
-            $user = $this->getDoctrine()->getRepository('RestBundle:User')->find($id);
+        $user = $this->getDoctrine()->getRepository('RestBundle:User')->find($id);
         if (!$user) 
-            {
-            throw $this->createNotFoundException('Aucun produit trouvé pour cet id : '.$id);
-            }    
-        //var_dump($user);
-        $response = new Response();
-        $response->setContent(json_encode(array('id'=>$user->getId(),
-        'lastname'=>$user->getLastname(),
-        'firstname'=>$user->getFirstname(),
-        'email'=>$user->getEmail(),
-        'role'=>$user->getRole()
-         )));
-        $response->headers->set('Content-Type', 'application/json');
-        return $response;
+        {
+			$response = new Response();
+			$response->setContent(json_encode(array('status'=>404,
+			'message'=>'not found'
+			)));
+			$response->headers->set('Content-Type', 'application/json');
+			return $response;
+        }    
+        if ($user->getRole() == 'normal')
+        {
+	        $response = new Response();
+	        $response->setContent(json_encode(array('id'=>$user->getId(),
+	        'lastname'=>$user->getLastname(),
+	        'firstname'=>$user->getFirstname(),
+	        'email'=>$user->getEmail(),
+	        'role'=>$user->getRole()
+	         )));
+	        $response->headers->set('Content-Type', 'application/json');
+	        return $response;
+        }
+        else
+        {
+	        $response = new Response();
+	        $response->setContent(json_encode(array('status'=>401,
+	        'message'=>'unauthorized'
+	         )));
+	        $response->headers->set('Content-Type', 'application/json');
+	        return $response;
+		}
     }
 }
