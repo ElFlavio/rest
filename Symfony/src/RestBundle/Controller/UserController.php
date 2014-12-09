@@ -15,9 +15,10 @@ class UserController extends Controller
         {
 			$response = new Response();
 			$response->setContent(json_encode(array('status'=>404,
-			'message'=>'not found'
+			'message'=>'not found',
+			404
 			)));
-			$response->headers->set('Content-Type', 'application/json', 'HTTP/1.0 404 Not Found');
+			$response->headers->set('Content-Type', 'application/json');
 			return $response;
         }    
         if ($user->getRole() == 'normal')
