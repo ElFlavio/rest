@@ -48,14 +48,7 @@ class UserController extends Controller
     {
     	if ($request->getMethod() == 'POST')
     	{
-			$response = new Response();
-	        $response->setContent(json_encode(array('test'=>test)));
-	        $response->headers->set('Content-Type', 'application/json');
-	        return $response;
-  		}
-  		else
-  		{
-  			echo "ce n'est pas un POST";
+    		echo "La méthode est POST"
   		}
     }
 }
