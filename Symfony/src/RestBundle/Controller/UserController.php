@@ -53,5 +53,9 @@ class UserController extends Controller
 	        $response->headers->set('Content-Type', 'application/json');
 	        return $response;
   		}
+  		else
+  		{
+  			echo "ce n'est pas un POST";
+  		}
     }
 }
