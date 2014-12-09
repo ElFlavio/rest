@@ -21,7 +21,10 @@ rest_user4:
 rest_add:
     path:     /users/
     defaults: { _controller: RestBundle:User:add }
+    requirements:
+    	_method: GET
 
 rest_add2:
     path:     /users
     defaults: { _controller: RestBundle:User:add }
+    	_method: GET
