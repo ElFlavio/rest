@@ -22,9 +22,9 @@ rest_add:
     path:     /users/
     defaults: { _controller: RestBundle:User:add }
     requirements:
-    	_method: GET
+    	_method: POST
 
 rest_add2:
     path:     /users
     defaults: { _controller: RestBundle:User:add }
-    	_method: GET
+    	_method: POST
