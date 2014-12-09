@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function indexAction($id)
     {  
-            $user = $this->getDoctrine()->getRepository('RestBundle:user')->find($id);
+            $user = $this->getDoctrine()->getRepository('RestBundle:User')->find($id);
         if (!$user) 
             {
             throw $this->createNotFoundException('Aucun produit trouvé pour cet id : '.$id);
