@@ -48,7 +48,13 @@ class UserController extends Controller
     {
     	if ($request->getMethod() == 'POST')
     	{
-    		echo "La méthode est POST"
+	        $response = new Response();
+	        $response->setContent(json_encode(array('status'=>401,
+	        'message'=>'unauthorized'
+	        )));
+			$response->setStatusCode(401);
+	        $response->headers->set('Content-Type', 'application/json');
+	        return $response;
   		}
     }
 }
